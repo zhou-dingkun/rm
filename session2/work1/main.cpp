@@ -1,5 +1,6 @@
 #include <iostream>
 #include <memory>
+#include <sstream>
 #include <string>
 #include <vector>
 
@@ -94,6 +95,8 @@ public:
 
 class RobotPool {
 public:
+	explicit RobotPool(std::vector<std::string>& logs) : logs_(logs) {}
+
 	void applyTime(uint32_t deltaSeconds) {
 		if (deltaSeconds == 0) {
 			return;
@@ -160,12 +163,13 @@ private:
 		list.swap(kept);
 	}
 
-	static void printDestroyed(const Robot& robot) {
-		std::cout << "D " << robot.team() << " " << robot.id() << std::endl;
+	void printDestroyed(const Robot& robot) {
+		logs_.push_back("D " + std::to_string(robot.team()) + " " + std::to_string(robot.id()));
 	}
 
 	std::vector<std::shared_ptr<Robot>> normal_;
 	std::vector<std::shared_ptr<Robot>> destroyed_;
+	std::vector<std::string>& logs_;
 };
 
 static uint16_t clampU16(uint32_t value) {
@@ -187,7 +191,8 @@ static std::shared_ptr<Robot> createRobot(uint16_t team,
 }
 
 int main() {
-	RobotPool pool;
+	std::vector<std::string> logs;
+	RobotPool pool(logs);
 	uint32_t lastTime = 0;
 	bool hasTime = false;
 
@@ -195,7 +200,18 @@ int main() {
 	char command = 0;
 	uint32_t team = 0;
 	uint32_t id = 0;
-	while (std::cin >> timeValue >> command >> team >> id) {
+	int cnt = 0;
+	std::cin >> cnt;
+	std::string line;
+	std::getline(std::cin, line);
+	for (int i = 0; i < cnt; ++i) {
+		std::getline(std::cin, line);
+		if (line.empty()) {
+			--i;
+			continue;
+		}
+		std::istringstream iss(line);
+		iss >> timeValue >> command >> team >> id;
 		uint32_t delta = 0;
 		if (!hasTime) {
 			lastTime = timeValue;
@@ -210,7 +226,10 @@ int main() {
 			uint32_t type = 0;
 			uint32_t hpLimit = 0;
 			uint32_t heatLimit = 0;
-			std::cin >> type >> hpLimit >> heatLimit;
+			iss >> type;
+			hpLimit = (type == kEngineerType) ? 300 : 100;
+			heatLimit = 0;
+			iss >> hpLimit >> heatLimit;
 
 			auto destroyed = pool.findDestroyed(clampU16(team), clampU16(id));
 			if (destroyed && destroyed->type() == static_cast<uint8_t>(type)) {
@@ -242,12 +261,14 @@ int main() {
 
 		if (command == 'F') {
 			uint32_t hpValue = 0;
-			std::cin >> hpValue;
+			iss >> hpValue;
 			auto normal = pool.findNormal(clampU16(team), clampU16(id));
 			if (!normal) {
 				continue;
 			}
-			normal->setHp(clampU16(hpValue));
+			uint16_t currentHp = normal->hp();
+			uint16_t damage = clampU16(hpValue);
+			normal->setHp(static_cast<uint16_t>(currentHp > damage ? currentHp - damage : 0));
 			if (normal->hp() == 0) {
 				pool.moveToDestroyed(normal);
 			}
@@ -256,7 +277,7 @@ int main() {
 
 		if (command == 'H') {
 			uint32_t heatValue = 0;
-			std::cin >> heatValue;
+			iss >> heatValue;
 			auto normal = pool.findNormal(clampU16(team), clampU16(id));
 			if (!normal) {
 				continue;
@@ -272,7 +293,7 @@ int main() {
 			uint32_t targetLevel = 0;
 			uint32_t newHpLimit = 0;
 			uint32_t newHeatLimit = 0;
-			std::cin >> targetLevel >> newHpLimit >> newHeatLimit;
+			iss >> targetLevel;
 			auto normal = pool.findNormal(clampU16(team), clampU16(id));
 			if (!normal) {
 				continue;
@@ -283,12 +304,19 @@ int main() {
 			if (targetLevel <= normal->level()) {
 				continue;
 			}
+			newHpLimit = normal->hpLimit();
+			newHeatLimit = normal->heatLimit();
+			iss >> newHpLimit >> newHeatLimit;
 			normal->setLevel(clampU16(targetLevel));
 			normal->setHpLimit(clampU16(newHpLimit));
 			normal->setHeatLimit(clampU16(newHeatLimit));
 			normal->setHp(normal->hpLimit());
 			continue;
 		}
+	}
+
+	for (const auto& entry : logs) {
+		std::cout << entry << std::endl;
 	}
 
 	return 0;
