@@ -8,7 +8,7 @@
 namespace {
 const uint8_t kInfantryType = 0;
 const uint8_t kEngineerType = 1;
-}  // namespace
+}
 
 class Robot {
  public:
