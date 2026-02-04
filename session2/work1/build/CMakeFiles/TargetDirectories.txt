@@ -1,3 +1,3 @@
-E:/ckyf/version/rm/rm/session2/work1/build/CMakeFiles/rm.dir
-E:/ckyf/version/rm/rm/session2/work1/build/CMakeFiles/edit_cache.dir
-E:/ckyf/version/rm/rm/session2/work1/build/CMakeFiles/rebuild_cache.dir
+/media/zdk/文件/ckyf/version/rm/rm/session2/work1/build/CMakeFiles/rm.dir
+/media/zdk/文件/ckyf/version/rm/rm/session2/work1/build/CMakeFiles/edit_cache.dir
+/media/zdk/文件/ckyf/version/rm/rm/session2/work1/build/CMakeFiles/rebuild_cache.dir
