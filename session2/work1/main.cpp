@@ -66,9 +66,6 @@ class Robot {
     heat_ = static_cast<uint16_t>(new_heat);
     hp_ = static_cast<uint16_t>(new_hp);
   }
-
-  virtual std::string name() const = 0;
-
  private:
   uint16_t team_;
   uint16_t id_;
@@ -83,15 +80,11 @@ class Robot {
 class InfantryRobot : public Robot {
  public:
   using Robot::Robot;
-
-  std::string name() const override { return "Infantry"; }
 };
 
 class EngineerRobot : public Robot {
  public:
   using Robot::Robot;
-
-  std::string name() const override { return "Engineer"; }
 };
 
 class RobotPool {
