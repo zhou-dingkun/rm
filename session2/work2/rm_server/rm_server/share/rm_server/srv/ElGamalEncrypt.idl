@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from rm_server/srv/ElGamalEncrypt.srv
+// generated code does not contain a copyright notice
+
+
+module rm_server {
+  module srv {
+    @verbatim (language="comment", text=
+      "请求：客户端的公钥")
+    struct ElGamalEncrypt_Request {
+      uint64 public_key;
+    };
+    @verbatim (language="comment", text=
+      "响应：加密后的密文对")
+    struct ElGamalEncrypt_Response {
+      uint64 y1;
+
+      uint64 y2;
+    };
+  };
+};
