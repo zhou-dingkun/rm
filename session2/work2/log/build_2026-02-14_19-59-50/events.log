@@ -1,0 +1,6 @@
+[0.000000] (-) TimerEvent: {}
+[0.000101] (-) JobUnselected: {'identifier': 'rm_server'}
+[0.000134] (cilent) JobQueued: {'identifier': 'cilent', 'dependencies': OrderedDict([('rm_server', '/media/zdk/文件/ckyf/version/rm/rm/session2/work2/install/rm_server')])}
+[0.000159] (cilent) JobStarted: {'identifier': 'cilent'}
+[0.026967] (cilent) JobEnded: {'identifier': 'cilent', 'rc': 1}
+[0.037379] (-) EventReactorShutdown: {}

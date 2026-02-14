@@ -1,0 +1,10 @@
+/media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent/CMakeFiles/uninstall.dir
+/media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent/CMakeFiles/cilent_uninstall.dir
+/media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent/CMakeFiles/topic_listener.dir
+/media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent/CMakeFiles/test.dir
+/media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent/CMakeFiles/edit_cache.dir
+/media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent/CMakeFiles/rebuild_cache.dir
+/media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent/CMakeFiles/list_install_components.dir
+/media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent/CMakeFiles/install.dir
+/media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent/CMakeFiles/install/local.dir
+/media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent/CMakeFiles/install/strip.dir
