@@ -1,0 +1,4 @@
+Invoking command in '/media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent -- -j32 -l32
+Invoked command in '/media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent -- -j32 -l32
+Invoking command in '/media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent
+Invoked command in '/media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent

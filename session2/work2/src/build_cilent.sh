@@ -1,10 +1,9 @@
-#!/usr/bin/env bash
+
 set -e
 
 WS_DIR="$(cd "$(dirname "$0")" && pwd)"
 PKG_NAME="cilent"
 
-# 避免混用 rolling/humble
 for _v in AMENT_PREFIX_PATH CMAKE_PREFIX_PATH LD_LIBRARY_PATH PYTHONPATH; do
   _old="${!_v:-}"
   if [ -n "$_old" ]; then

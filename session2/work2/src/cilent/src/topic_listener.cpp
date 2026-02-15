@@ -1,5 +1,4 @@
 #include <chrono>
-#include <cstdint>
 #include <functional>
 #include <memory>
 
@@ -14,7 +13,7 @@ using namespace std::chrono_literals;
 class client : public rclcpp::Node {
 public:
 	client()
-			: Node("elgamal_client"), private_key_(12345ULL), waiting_param_(true),
+			: Node("elgamal_client"), private_key_(12345LL), waiting_param_(true),
 				finished_count_(0) {
 		params_sub_ = this->create_subscription<rm_server::msg::GetElGamalParams>(
 				"elgamal_params", 10,
@@ -24,26 +23,26 @@ public:
 
 		encrypt_client_ = this->create_client<rm_server::srv::ElGamalEncrypt>("elgamal_service");
 
-		RCLCPP_INFO(this->get_logger(), "ElGamal client started, private key = %llu",
-								static_cast<unsigned long long>(private_key_));
+		RCLCPP_INFO(this->get_logger(), "client started, private key = %lld",
+							private_key_);
 	}
 
 private:
-	static uint64_t mod_pow(uint64_t base, uint64_t exp, uint64_t mod) {
-		uint64_t result = 1ULL;
+	static long long int mod_pow(long long int base, long long int exp, long long int mod) {
+		long long int result = 1LL;
 		base %= mod;
 		while (exp > 0) {
-			if (exp & 1ULL) {
-				result = static_cast<uint64_t>((__uint128_t)result * base % mod);
+			if (exp & 1LL) {
+				result = static_cast<long long int>((__int128_t)result * base % mod);
 			}
-			base = static_cast<uint64_t>((__uint128_t)base * base % mod);
-			exp >>= 1ULL;
+			base = static_cast<long long int>((__int128_t)base * base % mod);
+			exp >>= 1LL;
 		}
 		return result;
 	}
 
-	static uint64_t mod_inv_prime(uint64_t x, uint64_t p) {
-		return mod_pow(x, p - 2ULL, p);
+	static long long int mod_inv_prime(long long int x, long long int p) {
+		return mod_pow(x, p - 2LL, p);
 	}
 
 	void on_params(const rm_server::msg::GetElGamalParams::SharedPtr msg) {
@@ -54,13 +53,13 @@ private:
 		current_p_ = msg->p;
 		current_a_ = msg->a;
 
-		const uint64_t public_key_b = mod_pow(current_a_, private_key_, current_p_);
+		const long long int public_key_b = mod_pow(current_a_, private_key_, current_p_);
 		waiting_param_ = false;
 
-		RCLCPP_INFO(this->get_logger(), "recv p=%llu, a=%llu, send b=%llu",
-								static_cast<unsigned long long>(current_p_),
-								static_cast<unsigned long long>(current_a_),
-								static_cast<unsigned long long>(public_key_b));
+		RCLCPP_INFO(this->get_logger(), "receive p=%lld, a=%lld, send b=%lld",
+							current_p_,
+							current_a_,
+							public_key_b);
 
 		if (!encrypt_client_->wait_for_service(2s)) {
 			RCLCPP_WARN(this->get_logger(), "service error");
@@ -69,7 +68,7 @@ private:
 		}
 
 		auto request = std::make_shared<rm_server::srv::ElGamalEncrypt::Request>();
-		request->public_key = public_key_b;
+		request->public_key = static_cast<decltype(request->public_key)>(public_key_b);
 
 		auto future = encrypt_client_->async_send_request(
 				request,
@@ -80,26 +79,26 @@ private:
 	void on_encrypt_response(
 			rclcpp::Client<rm_server::srv::ElGamalEncrypt>::SharedFuture future) {
 		auto response = future.get();
-		const uint64_t y1 = response->y1;
-		const uint64_t y2 = response->y2;
+		const long long int y1 = static_cast<long long int>(response->y1);
+		const long long int y2 = static_cast<long long int>(response->y2);
 
-		const uint64_t s = mod_pow(y1, private_key_, current_p_);
-		const uint64_t s_inv = mod_inv_prime(s, current_p_);
-		const uint64_t plain = static_cast<uint64_t>((__uint128_t)y2 * s_inv % current_p_);
+		const long long int s = mod_pow(y1, private_key_, current_p_);
+		const long long int s_inv = mod_inv_prime(s, current_p_);
+		const long long int plain = static_cast<long long int>((__int128_t)y2 * s_inv % current_p_);
 
 		std_msgs::msg::Int64 out;
-		out.data = static_cast<int64_t>(plain);
+		out.data = static_cast<long long int>(plain);
 		result_pub_->publish(out);
 
 		++finished_count_;
 		RCLCPP_INFO(this->get_logger(),
-								"recv y1=%llu, y2=%llu => plain=%lld (round %d/5)",
-								static_cast<unsigned long long>(y1),
-								static_cast<unsigned long long>(y2),
-								static_cast<long long>(out.data), finished_count_);
+							"receive y1=%lld, y2=%lld => plain=%lld (round %lld/5)",
+							y1,
+							y2,
+							static_cast<long long int>(out.data), finished_count_);
 
 		if (finished_count_ >= 5) {
-			RCLCPP_INFO(this->get_logger(), "finished 5 rounds, shutting down");
+			RCLCPP_INFO(this->get_logger(), "finished");
 			rclcpp::shutdown();
 			return;
 		}
@@ -112,12 +111,12 @@ private:
 	rclcpp::Publisher<std_msgs::msg::Int64>::SharedPtr result_pub_;
 	rclcpp::Client<rm_server::srv::ElGamalEncrypt>::SharedPtr encrypt_client_;
 
-	uint64_t private_key_;
-	uint64_t current_p_{};
-	uint64_t current_a_{};
+	long long int private_key_;
+	long long int current_p_{};
+	long long int current_a_{};
 
 	bool waiting_param_;
-	int finished_count_;
+	long long int finished_count_;
 };
 
 int main(int argc, char **argv) {

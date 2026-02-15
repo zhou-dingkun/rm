@@ -1,0 +1,26 @@
+[0.005s] Invoking command in '/media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent': CMAKE_PREFIX_PATH=/opt/ros/rolling:/opt/ros/humble /usr/bin/cmake --build /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent -- -j32 -l32
+[0.031s] [35m[1mConsolidate compiler generated dependencies of target topic_listener[0m
+[0.042s] [ 50%] [32mBuilding CXX object CMakeFiles/topic_listener.dir/src/topic_listener.cpp.o[0m
+[3.897s] [100%] [32m[1mLinking CXX executable topic_listener[0m
+[4.092s] [100%] Built target topic_listener
+[4.100s] Invoked command in '/media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent' returned '0': CMAKE_PREFIX_PATH=/opt/ros/rolling:/opt/ros/humble /usr/bin/cmake --build /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent -- -j32 -l32
+[4.106s] Invoking command in '/media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent': CMAKE_PREFIX_PATH=/opt/ros/rolling:/opt/ros/humble /usr/bin/cmake --install /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent
+[4.110s] -- Install configuration: ""
+[4.110s] -- Installing: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/lib/cilent/topic_listener
+[4.113s] -- Set runtime path of "/media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/lib/cilent/topic_listener" to "/media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/cilent/../../rm_server/rm_server/lib"
+[4.113s] -- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/ament_index/resource_index/package_run_dependencies/cilent
+[4.113s] -- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/ament_index/resource_index/parent_prefix_path/cilent
+[4.113s] -- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/cilent/environment/ament_prefix_path.sh
+[4.113s] -- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/cilent/environment/ament_prefix_path.dsv
+[4.113s] -- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/cilent/environment/path.sh
+[4.113s] -- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/cilent/environment/path.dsv
+[4.113s] -- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/cilent/local_setup.bash
+[4.113s] -- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/cilent/local_setup.sh
+[4.113s] -- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/cilent/local_setup.zsh
+[4.113s] -- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/cilent/local_setup.dsv
+[4.113s] -- Installing: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/cilent/package.dsv
+[4.113s] -- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/ament_index/resource_index/packages/cilent
+[4.113s] -- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/cilent/cmake/cilentConfig.cmake
+[4.113s] -- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/cilent/cmake/cilentConfig-version.cmake
+[4.113s] -- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/cilent/package.xml
+[4.114s] Invoked command in '/media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent' returned '0': CMAKE_PREFIX_PATH=/opt/ros/rolling:/opt/ros/humble /usr/bin/cmake --install /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/build/cilent

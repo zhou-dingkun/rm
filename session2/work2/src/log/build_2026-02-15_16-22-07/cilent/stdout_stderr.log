@@ -1,0 +1,22 @@
+[35m[1mConsolidate compiler generated dependencies of target topic_listener[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/topic_listener.dir/src/topic_listener.cpp.o[0m
+[100%] [32m[1mLinking CXX executable topic_listener[0m
+[100%] Built target topic_listener
+-- Install configuration: ""
+-- Installing: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/lib/cilent/topic_listener
+-- Set runtime path of "/media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/lib/cilent/topic_listener" to "/media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/cilent/../../rm_server/rm_server/lib"
+-- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/ament_index/resource_index/package_run_dependencies/cilent
+-- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/ament_index/resource_index/parent_prefix_path/cilent
+-- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/cilent/environment/ament_prefix_path.sh
+-- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/cilent/environment/ament_prefix_path.dsv
+-- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/cilent/environment/path.sh
+-- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/cilent/environment/path.dsv
+-- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/cilent/local_setup.bash
+-- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/cilent/local_setup.sh
+-- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/cilent/local_setup.zsh
+-- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/cilent/local_setup.dsv
+-- Installing: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/cilent/package.dsv
+-- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/ament_index/resource_index/packages/cilent
+-- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/cilent/cmake/cilentConfig.cmake
+-- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/cilent/cmake/cilentConfig-version.cmake
+-- Up-to-date: /media/zdk/文件/ckyf/version/rm/rm/session2/work2/src/install/cilent/share/cilent/package.xml
